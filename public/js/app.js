@@ -1,41 +1,18 @@
 const ebooks = [
   {
-    id: "ebook_001",
-    titulo: "Guia Prático de Redes e Sistemas",
-    descricao: "Aprenda os fundamentos de infraestrutura, IP e conectividade para estudantes de engenharia e IT.",
-    preco: 1500,
-    imagem: "assets/covers/redes.jpg"
+    id: "guia_pele",
+    titulo: "Pele: Guia Completo para Entender e Cuidar",
+    descricao: "Ciência e estética a favor da sua beleza. Aprenda sobre a estrutura da pele, tratamento de acne, melasma e rejuvenescimento.",
+    preco: "350 MZN",
+    capa: "assets/covers/pele.jpeg",
+    ficheiroPdf: "assets/ebooks/pele.pdf"
   },
   {
-    id: "ebook_002",
-    titulo: "Manual do Desenvolvedor Web 2026",
-    descricao: "Do zero ao deploy no Netlify e Vercel com boas práticas de HTML, CSS e JavaScript moderno.",
-    preco: 2000,
-    imagem: "assets/covers/web.jpg"
+    id: "leis_poder",
+    titulo: "As 48 Leis do Poder",
+    descricao: "Robert Greene e Joost Elffers. Um manual definitivo para dominar a arte da dissimulação, estratégia e dinâmica de poder.",
+    preco: "500 MZN",
+    capa: "assets/covers/The 48 Laws Of Power.jpeg",
+    ficheiroPdf: "assets/ebooks/as 48 leis.pdf"
   }
 ];
-
-function carregarEbooks() {
-  const container = document.getElementById("grid-ebooks");
-  if (!container) return;
-  container.innerHTML = "";
-
-  ebooks.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card-ebook";
-    card.innerHTML = `
-      <img src="${item.imagem}" alt="${item.titulo}" onerror="this.src='https://via.placeholder.com/300x260?text=E-book'">
-      <div class="card-body">
-        <h3 class="card-title">${item.titulo}</h3>
-        <p class="card-desc">${item.descricao}</p>
-        <div class="card-footer">
-          <div class="price">${item.preco} MZN</div>
-          <button class="btn-comprar" onclick="abrirCheckout('${item.id}')">Comprar</button>
-        </div>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", carregarEbooks);

@@ -7,11 +7,15 @@ exports.handler = async (event) => {
     const { ebookId, nome, email } = JSON.parse(event.body);
 
     const precos = {
-      ebook_001: 1500,
-      ebook_002: 2000
+      guia_pele: 350,
+      leis_poder: 500
     };
 
-    const valor = precos[ebookId] || 1500;
+    const valor = precos[ebookId];
+
+    if (!valor) {
+      return { statusCode: 400, body: JSON.stringify({ error: "E-book inválido" }) };
+    }
 
     const response = await fetch("https://api.gateway-escolhido.co.mz/v1/checkout/create", {
       method: "POST",
