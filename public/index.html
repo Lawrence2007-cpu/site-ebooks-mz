@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livraria Digital | E-books & Infoprodutos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="logo">BookStore<span>.mz</span></div>
+    <div class="badge-moeda">Moeda: MZN (Meticais)</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Transforme o seu Conhecimento Hoje</h1>
+    <p>E-books exclusivos com acesso e download imediato após o pagamento via M-Pesa, e-Mola ou Cartão Internacional.</p>
+  </section>
+
+  <!-- Catálogo de E-books -->
+  <main class="container">
+    <h2 class="section-title">Os Nossos E-books & Infoprodutos</h2>
+    <div class="grid-ebooks" id="grid-ebooks">
+      <!-- Inserido dinamicamente pelo JavaScript -->
+    </div>
+  </main>
+
+  <!-- Modal de Checkout / Compra -->
+  <div class="modal-overlay" id="modal-checkout">
+    <div class="modal-card">
+      <button class="close-btn" id="close-modal">&times;</button>
+      <h3>Finalizar Compra</h3>
+      <p id="modal-ebook-titulo" class="modal-subtitle"></p>
+      
+      <form id="form-checkout">
+        <input type="hidden" id="ebook-id">
+        <div class="form-group">
+          <label>Seu Nome Completo</label>
+          <input type="text" id="cliente-nome" required placeholder="Ex: Allan Massango">
+        </div>
+        <div class="form-group">
+          <label>Seu Email (Para onde enviaremos o link)</label>
+          <input type="email" id="cliente-email" required placeholder="exemplo@email.com">
+        </div>
+        <div class="form-group">
+          <label>Valor a Pagar</label>
+          <div class="price-tag" id="modal-ebook-preco">0.00 MZN</div>
+        </div>
+
+        <button type="submit" class="btn-comprar" id="btn-submeter">
+          Pagar e Baixar Agora
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

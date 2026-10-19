@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Confirmado | Download do E-book</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container" style="text-align: center; padding-top: 100px;">
+    <h1 style="color: var(--accent-color); font-size: 2.5rem;">🎉 Pagamento Confirmado com Sucesso!</h1>
+    <p style="margin-top: 15px; color: var(--text-muted);">
+      Obrigado pela sua compra. O seu e-book está a ser transferido automaticamente para o seu dispositivo.
+    </p>
+
+    <div style="margin-top: 40px;">
+      <a id="download-btn" href="#" download class="btn-comprar" style="padding: 15px 30px; text-decoration: none;">
+        Clique aqui se o download não iniciar
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const item = urlParams.get("item");
+
+      const ficheiros = {
+        ebook_001: "assets/ebooks/Guia_Pratico_Redes.pdf",
+        ebook_002: "assets/ebooks/Manual_Desenvolvedor_2026.pdf"
+      };
+
+      const caminhoFicheiro = ficheiros[item] || "assets/ebooks/Guia_Pratico_Redes.pdf";
+      const btnLink = document.getElementById("download-btn");
+      btnLink.href = caminhoFicheiro;
+
+      setTimeout(() => {
+        btnLink.click();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
